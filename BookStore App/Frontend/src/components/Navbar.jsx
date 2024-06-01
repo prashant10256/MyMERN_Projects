@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function Navbar() {
+  const [sticky, setSticky] = useState(false);
+  useEffect(() => {
+    const habdleScroll = () => {
+      if (window.scrollY > 0) {
+        setSticky(true);
+      } else {
+        setSticky(false);
+      }
+    };
+    window.addEventListener("scroll", habdleScroll);
+    return () => {
+      window.removeEventListener("scroll", habdleScroll);
+    };
+  }, []);
   const navItems = (
     <>
       <li>
-        <a>Home</a>
+        <a href="/">Home</a>
       </li>
       <li>
-        <a>Course</a>
+        <a href="course">Course</a>
       </li>
       <li>
         <a>Contact</a>
@@ -19,8 +33,15 @@ function Navbar() {
   );
   return (
     <>
-      <div className="max-w-screen-2xl container mx-auto md:px-20 px-4">
-        <div className="navbar bg-base-100">
+      <div
+        className={`max-w-screen-2xl container mx-auto md:px-20 px-4 fixed top-0 left-0 right-0 z-50
+       ${
+         sticky
+           ? "sticy-navbar shadow-md bg-base-200 duration-300 transition-all ease-in-out"
+           : ""
+       }`}
+      >
+        <div className="navbar ">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -58,7 +79,11 @@ function Navbar() {
             </div>
             <div className="hidden md:block">
               <label className="px-3 py-1 border rounded-md flex items-center gap-2">
-                <input type="text" className="grow outline-none" placeholder="Search" />
+                <input
+                  type="text"
+                  className="grow outline-none"
+                  placeholder="Search"
+                />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 16 16"
