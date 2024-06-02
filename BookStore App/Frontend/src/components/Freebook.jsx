@@ -8,7 +8,7 @@ import list from "../../public/list.json";
 import Cards from "./Cards";
 function Freebook() {
   const filterData = list.filter((data) => data.category === "free");
-    console.log(filterData);
+  // console.log(filterData);
 
   var settings = {
     dots: true,
@@ -57,8 +57,8 @@ function Freebook() {
         </div>
         <div>
           <Slider {...settings}>
-            {filterData.map((item) =>(
-                <Cards item={item} key={item.id}/>
+            {filterData.map((item) => (
+              <Cards item={item} key={item.id} />
             ))}
           </Slider>
         </div>
