@@ -9,7 +9,7 @@ const Navbar = () => {
     <>
       <nav>
         <div className="logo">Prashant</div>
-        <div className={show ? "navlinks showmenu" : "navlinks"}>
+        <div className={show ? "navLinks showmenu" : "navLinks"}>
           <div className="links">
             {data[0].navbarLinks.map((element) => (
               <Link

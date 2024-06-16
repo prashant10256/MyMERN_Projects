@@ -1,4 +1,5 @@
 import About from "../components/About"
+import Footer from "../components/Footer"
 import HeroSection from "../components/HeroSection"
 import Menu from "../components/Menu"
 import Qualities from "../components/Qualities"
@@ -16,6 +17,7 @@ const Home = () => {
     <WhoAreWe/>
     <Team/>
     <Reservation/>
+    <Footer/>
     </>
   )
 }
