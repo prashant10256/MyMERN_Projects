@@ -34,7 +34,7 @@ const Reservation = () => {
       setDate("");
       navigate("/success");
     } catch (error) {
-      toast.error(error);
+      toast.error(error.response.data.message);
     }
   };
 
