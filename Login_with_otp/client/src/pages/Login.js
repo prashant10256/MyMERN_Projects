@@ -1,8 +1,12 @@
-import React from "react";
-import "../styles/mix.css";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import "../styles/mix.css";
 
 const Login = () => {
+
+    const [email, setEmail] = useState("")
+    console.log(email);
+
   return (
     <>
       <section>
@@ -13,13 +17,14 @@ const Login = () => {
           </div>
           <form>
             <div className="form_input">
-              <lable htmlFor="email">Email</lable>
+              <label htmlFor="email" >Email</label>
               <input
                 type="email"
                 name="email"
                 id=""
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
-              ></input>
+              />
             </div>
             <button className="btn">Login</button>
             <p>Dont't have and account <NavLink to="/register">Sign up</NavLink></p>
